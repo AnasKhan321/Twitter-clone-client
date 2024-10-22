@@ -9,7 +9,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { CiCircleMore } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { GetRecommendeduser, UseUser } from "../ReactQueryHooks";
-import GoogleClient from "../GoogleClientComponent";
+
 import { graphqlclient } from "@/clients/api";
 import { getCurrentUserQuery } from "@/graphql/queries/user";
 
@@ -63,7 +63,7 @@ const SidebarMenuItems: TwitterSideBarButton[] = [
   },
 ];
 const TwiterLayout: React.FC<TwitterLayoutProps> = async(props) => {
-  const usercomponent = UseUser;
+
   const data =  await graphqlclient.request(getCurrentUserQuery)
   console.log(data)
   return (

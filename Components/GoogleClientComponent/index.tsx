@@ -30,8 +30,7 @@ const GoogleClient = ()=>{
             });
             console.log(data)
            window.localStorage.setItem("__twittertoken"  , data.verifyGoogleToken)
-         
-            await queryClient.invalidateQueries(["current-user"])
+           await queryClient.invalidateQueries({ queryKey: ["current-user"] });
         } catch (error  ) {
             console.error("Error verifying token:", error);
           

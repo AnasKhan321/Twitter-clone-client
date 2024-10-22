@@ -26,7 +26,7 @@ export const Follouser = ()=>{
         mutationKey : ["follow-user"]  , 
         mutationFn : (payload : string)=> graphqlclient.request(followuser  , {to : payload})  , 
         onSuccess : ()=>{
-            queryClient.invalidateQueries(["current-user"])
+             queryClient.invalidateQueries({ queryKey: ["current-user"] });
         }
     })
 
@@ -39,7 +39,7 @@ export const UnFollowUser = ()=>{
         mutationKey : ["unfollow-user"]  , 
         mutationFn : (to : string)=> graphqlclient.request(unFollowUser  , {to : to}) , 
         onSuccess : ()=>{
-            queryClient.invalidateQueries(["current-user"])
+             queryClient.invalidateQueries({ queryKey: ["current-user"] });
         }
     })
 
