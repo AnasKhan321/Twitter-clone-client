@@ -5,16 +5,15 @@ import { BiRepost } from "react-icons/bi";
 
 import { CiBookmark } from "react-icons/ci";
 import { CgInsights } from "react-icons/cg";
+import Link from "next/link"
 import { IoShareOutline } from "react-icons/io5";
-const FeedCard: React.FC = () => {
+import { Tweet } from "@/Interfaces";
+const FeedCard: React.FC<Tweet> = (props) => {
   return (
-    <div
-      className="border  grid grid-cols-12 cursor-pointer transition-all  border-y-2 border-gray-900
-      p-5 "
-    >
+    <div className="border  grid grid-cols-12 cursor-pointer transition-all  border-y-2 border-gray-900 p-5 ">
       <div className="col-span-1 ">
         <Image
-          src="https://avatars.githubusercontent.com/u/109456462?v=4"
+          src={props.author.profileImageUrl}
           width={50}
           height={50}
           className="rounded-full"
@@ -22,16 +21,20 @@ const FeedCard: React.FC = () => {
         />
       </div>
       <div className="col-span-11 pl-4 pr-2   ">
-        <h5>Anas Khan</h5>
+        <Link href={`/${props.author.id}`}> 
+        
+        <h5>{props.author?.firstName} {props.author?.lastName}</h5>
+        </Link>
 
-        <p>
-          Hey, @X , #connect me with people #interested in: 🧑‍💻Software
-          Engineering 📷Web Development 📷Backend 📷DSA 📷DevOps 📷JavaScript
-          📷Sports 📷 Investment Let's connect and grow together 📷
-          #letsconnect#buildinpublic #Coding 🤝🏻
+
+        <p> 
+          {props?.content}
         </p>
 
-        <div></div>
+        <div>
+
+        {props?.imageURL && <Image src={props.imageURL}  alt="image"   width={500}  height={500}/>}
+        </div>
 
         <div className="flex items-center justify-between   mt-5 text-xl text-gray-500">
           <div className="flex gap-x-1 group hover:text-blue-500  transition-all items-center ">
@@ -55,7 +58,9 @@ const FeedCard: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div> 
+   
+
   );
 };
 
