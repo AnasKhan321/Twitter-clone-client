@@ -12,6 +12,7 @@ import { GetRecommendeduser, UseUser } from "../ReactQueryHooks";
 
 import { graphqlclient } from "@/clients/api";
 import { getCurrentUserQuery } from "@/graphql/queries/user";
+import Link from "next/link";
 
 interface TwitterLayoutProps {
   children: React.ReactNode;
@@ -82,15 +83,17 @@ const TwiterLayout: React.FC<TwitterLayoutProps> = async(props) => {
               <ul>
                 {SidebarMenuItems.map((item) => {
                   return (
+
+                   <Link    key={item.title} href={item.link ?? "/"}> 
                     <li
                       className="flex justify-start  items-center
                           gap-4 hover:bg-gray-900  rounded-full
                           px-1 sm:px-6 py-[10px]  w-fit cursor-pointer"
-                      key={item.title}
+                   
                     >
                       <span className="text-lg sm:text-2xl">{item.icon}</span>
                       <span className="hidden sm:block text-[16px]">{item.title}</span>
-                    </li>
+                    </li></Link> 
                   );
                 })}
               </ul>

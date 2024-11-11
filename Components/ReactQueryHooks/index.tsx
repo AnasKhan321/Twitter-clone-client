@@ -24,11 +24,12 @@ export function UseUser() {
     );
   }
   return (
+    <Link href={`/${data.id}`}> 
     <div className=" flex items-center gap-x-3 m-2 mt-6 cursor-pointer hover:bg-gray-900 rounded-full p-2 transition-all ">
       <div>
         {data?.profileImageUrl && (
           <Image
-            src={data?.profileImageUrl}
+            src={data.profileImageUrl}
             alt="Profile Image"
             width={50}
             height={50}
@@ -42,7 +43,7 @@ export function UseUser() {
         </div>
         <div className="text-gray-500">@{data?.email}</div>
       </div>
-    </div>
+    </div></Link>
   );
 }
 
