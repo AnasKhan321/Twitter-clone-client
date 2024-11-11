@@ -29,6 +29,9 @@ const GoogleClient = ()=>{
                 token: googleToken,
             });
             console.log(data)
+            console.log(data.verifyGoogleToken
+
+            )
            window.localStorage.setItem("__twittertoken"  , data.verifyGoogleToken)
            await queryClient.invalidateQueries({ queryKey: ["current-user"] });
         } catch (error  ) {

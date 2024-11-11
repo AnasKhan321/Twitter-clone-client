@@ -12,6 +12,7 @@ import Image from "next/image"
 import { useMemo } from "react";
 import { unFollowUser } from "@/graphql/mutations/user";
 import Link from "next/link";
+import {MoonLoader}  from 'react-spinners'
 
 export function UseUser() {
   const data = UserCurrentUser();
@@ -103,7 +104,7 @@ export function AllTweets() {
       </div>
     );
   } else {
-    return <div>data is not found</div>;
+    return <div className="flex text-center items-center justify-center mt-10   w-full " ><MoonLoader className="text-center" color="#ffffff" /></div>;
   }
 }
 
